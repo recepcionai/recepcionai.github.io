@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RecepcionAI · Tu recepcionista, 24/7</title>
+<meta name="description" content="RecepcionAI atiende las llamadas de tu hotel las 24 horas, toma los datos del huésped y registra la reserva. Para hoteles, cabañas y hosterías de Argentina.">
+<meta name="theme-color" content="#0B2D5B">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://recepcionai.github.io/">
+<meta property="og:title" content="RecepcionAI · Tu recepcionista, 24/7">
+<meta property="og:description" content="Tu hotel siempre atendido: atendemos las llamadas, tomamos los datos y registramos la reserva.">
+<meta property="og:image" content="https://recepcionai.github.io/og-image.png">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://recepcionai.github.io/og-image.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B2D5B;--or:#F7931E;--or-d:#D97A08;--bg:#F5F7FA;--soft:#8CA3C6;--tx:#1F2937;--mut:#5B6677;--line:#E3E8F0;--r:20px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--tx);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.btn{font-family:Montserrat,Inter,system-ui,sans-serif}
+a{color:inherit}img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+header img{height:26px;display:block}
+nav{display:none;gap:28px;font-size:15px;font-weight:500;color:var(--mut)}nav a{text-decoration:none}nav a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:.15s}
+.btn-or{background:var(--or);color:#fff}.btn-or:hover{background:var(--or-d)}
+.btn-ghost{border-color:var(--line);color:var(--navy);background:#fff}.btn-ghost:hover{border-color:var(--navy)}
+header .btn{padding:10px 18px;font-size:14px}
+section{padding:72px 0}
+.eyebrow{font:700 12px Montserrat,Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--or-d);margin-bottom:12px}
+h1{font-size:clamp(34px,8vw,60px);line-height:1.08;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--or)}
+h2{font-size:clamp(28px,5vw,40px);line-height:1.15;font-weight:800;color:var(--navy);letter-spacing:-.01em}
+.lead{font-size:18px;color:var(--mut);max-width:520px;margin:20px 0 32px}
+.sec-head{max-width:620px;margin-bottom:44px}.sec-head p{color:var(--mut);margin-top:12px;font-size:17px}
+.hero{padding:48px 0 72px;background:linear-gradient(180deg,var(--bg),#fff)}
+.hero .wrap{display:grid;gap:48px}
+.cta{display:flex;flex-direction:column;gap:12px}.small{font-size:14px;color:var(--mut);margin-top:16px}
+/* call mockup */
+.phone{background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:0 30px 60px -30px rgba(11,45,91,.35);max-width:400px;width:100%;margin:0 auto;overflow:hidden}
+.ph-top{background:var(--navy);color:#fff;padding:20px 22px;display:flex;justify-content:space-between;align-items:center}
+.ph-top small{display:block;color:var(--soft);font-size:12px}.ph-top b{font:600 15px Montserrat,Inter,sans-serif}
+.live{font-size:13px;display:flex;align-items:center;gap:8px;color:#fff}.live:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--or);animation:p 1.4s infinite}
+@keyframes p{50%{opacity:.3}}
+.chat{padding:20px;display:flex;flex-direction:column;gap:10px;font-size:14.5px}
+.m{max-width:85%;padding:10px 14px;border-radius:16px;line-height:1.45}
+.m small{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px;opacity:.7}
+.g{background:var(--bg);border-bottom-left-radius:4px;align-self:flex-start}
+.b{background:var(--navy);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.ok{margin:0 20px 20px;border:1px solid #BFE6CF;background:#F0FAF4;border-radius:14px;padding:14px 16px;font-size:14px;display:flex;gap:12px;align-items:center}
+.ok i{flex:none;width:28px;height:28px;border-radius:50%;background:#1E9E5A;color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700}
+.ok b{display:block;color:#13663A}
+/* steps & cards */
+.grid{display:grid;gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.card h3{font-size:18px;color:var(--navy);margin-bottom:8px}.card p{color:var(--mut);font-size:15.5px}
+.num{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font:700 16px Montserrat,Inter,sans-serif;margin-bottom:16px}
+.alt{background:var(--bg)}
+.ico{width:44px;height:44px;border-radius:12px;background:rgba(247,147,30,.14);color:var(--or-d);display:grid;place-items:center;margin-bottom:16px}
+/* pricing */
+.price{display:flex;flex-direction:column;position:relative}
+.price.pop{border:2px solid var(--or)}
+.tagp{position:absolute;top:-13px;left:24px;background:var(--or);color:#fff;font:700 12px Montserrat,Inter,sans-serif;padding:4px 12px;border-radius:999px}
+.amt{font:800 34px Montserrat,Inter,sans-serif;color:var(--navy);margin:8px 0 2px}.amt small{font:500 15px Inter;color:var(--mut)}
+.mins{color:var(--mut);font-size:14px;margin-bottom:18px}
+.price ul{list-style:none;margin-bottom:24px;flex:1}.price li{padding:6px 0 6px 26px;position:relative;font-size:15px}
+.price li:before{content:"✓";position:absolute;left:0;color:var(--or-d);font-weight:700}
+.price .btn{width:100%}
+.note{text-align:center;color:var(--mut);font-size:14px;margin-top:24px}
+.fn{display:block;font-size:12px;line-height:1.45;color:var(--mut);margin-top:10px}
+.soon{display:inline-block;font:600 11px Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#B4630A;background:#FEF0DC;border-radius:999px;padding:2px 8px;vertical-align:middle;margin-left:6px}
+.price li.dim{color:var(--mut)}
+/* faq */
+.faq{max-width:760px}.faq details{border-bottom:1px solid var(--line);padding:20px 0}
+.faq summary{cursor:pointer;font:700 17px Montserrat,Inter,sans-serif;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";color:var(--or-d);font-size:24px;line-height:1}
+.faq details[open] summary:after{content:"–"}.faq p{color:var(--mut);margin-top:12px}
+/* form */
+.formbox{max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 30px 60px -40px rgba(11,45,91,.3)}
+.formbox .sec-head{margin-bottom:28px}
+label{display:block;font-weight:600;font-size:14px;margin:16px 0 6px;color:var(--navy)}
+input,select,textarea{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;font:inherit;font-size:16px;background:#fff;color:var(--tx)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(11,45,91,.12)}
+textarea{min-height:100px;resize:vertical}
+.formbox .btn{width:100%;margin-top:24px}
+footer{background:var(--navy);color:#fff;padding:56px 0 40px}
+footer .wrap{display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+footer img{height:28px}footer p{color:var(--soft);font-size:14px}
+.links{display:flex;flex-wrap:wrap;gap:12px 28px}.links a{text-decoration:none;font-weight:500}.links a:hover{color:var(--or)}
+@media(min-width:760px){
+ nav{display:flex}.cta{flex-direction:row}
+ .hero .wrap{grid-template-columns:1.1fr .9fr;align-items:center}
+ .g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+ section{padding:96px 0}.formbox{padding:44px}
+ footer .wrap{flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:wrap}
+}
+@media(min-width:760px) and (max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <a href="#"><img src="assets/logo-horizontal.svg" alt="RecepcionAI" width="130" height="26"></a>
+ <nav><a href="#como">Cómo funciona</a><a href="#beneficios">Beneficios</a><a href="#planes">Planes</a><a href="#faq">Preguntas</a></nav>
+ <a class="btn btn-or" href="#demo">Pedí tu demo</a>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+ <div>
+  <p class="eyebrow">Tu recepcionista, 24/7</p>
+  <h1>Tu hotel siempre <em>atendido</em></h1>
+  <p class="lead">RecepcionAI atiende las llamadas de tu hotel, toma los datos del huésped y registra la reserva. La ves al instante en tu panel y te llega un aviso por email.</p>
+  <div class="cta"><a class="btn btn-or" href="#demo">Pedí tu demo gratis</a><a class="btn btn-ghost" href="#como">Mirá cómo funciona</a></div>
+  <p class="small">30 días de prueba gratis · Sin tarjeta de crédito</p>
+ </div>
+ <div class="phone" aria-label="Ejemplo de llamada">
+  <div class="ph-top"><div><small>Llamada entrante</small><b>Cabañas del Lago, Villa La Angostura</b></div><span class="live">02:14</span></div>
+  <div class="chat">
+   <div class="m g"><small>Huésped</small>Hola, ¿tienen cabaña para 4 el fin de semana largo?</div>
+   <div class="m b"><small>RecepcionAI</small>¡Hola! Sí, la Cabaña Coihue está libre de viernes a lunes. ¿Te la reservo?</div>
+   <div class="m g"><small>Huésped</small>Dale, a nombre de Laura Gómez.</div>
+   <div class="m b"><small>RecepcionAI</small>Listo, Laura. Te mando la confirmación por email.</div>
+  </div>
+  <div class="ok"><i>✓</i><div><b>Nueva reserva confirmada</b>Cabaña Coihue · 3 noches · 4 huéspedes</div></div>
+ </div>
+</div></section>
+
+<section id="como"><div class="wrap">
+ <div class="sec-head"><p class="eyebrow">¿Cómo funciona?</p><h2>Listo en 3 pasos simples</h2></div>
+ <div class="grid g3">
+  <div class="card"><div class="num">1</div><h3>Desviá tu línea</h3><p>Activá el desvío de llamadas de tu teléfono fijo o celular hacia nuestro número. Te guiamos paso a paso.</p></div>
+  <div class="card"><div class="num">2</div><h3>Atendemos 24/7</h3><p>El asistente responde en español argentino, contesta consultas, revisa disponibilidad y toma los datos del huésped.</p></div>
+  <div class="card"><div class="num">3</div><h3>Recibís la reserva</h3><p>Aparece en tu panel y te avisamos por email. El huésped recibe su confirmación por email.</p></div>
+ </div>
+</div></section>
+
+<section id="beneficios" class="alt"><div class="wrap">
+ <div class="sec-head"><p class="eyebrow">Pensado para vos</p><h2>Para hoteles, cabañas, hosterías y apart hoteles</h2></div>
+ <div class="grid g3">
+  <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Atención 24/7</h3><p>No perdés más llamadas de madrugada ni cuando estás ocupado.</p></div>
+  <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Habla como vos</h3><p>Voseo natural, modismos locales y trato cálido con tus huéspedes.</p></div>
+  <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div><h3>Aviso de cada reserva</h3><p>Cada reserva nueva aparece en tu panel y te llega un aviso por email. Aviso por WhatsApp: próximamente.</p></div>
+  <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Ahorrá en personal</h3><p>Un recepcionista de convenio te cuesta más de $2 millones por mes con cargas sociales, y cubre un solo turno. RecepcionAI atiende las 24 horas desde USD 79 + IVA.<small class="fn">Estimación con el básico de la categoría 6 del CCT 389/04 (UTHGRA–FEHGRA), oct-2026, más adicionales y contribuciones patronales. No incluye ART ni antigüedad.</small></p></div>
+  <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div><h3>Integraciones <span class="soon">Próximamente</span></h3><p>Estamos desarrollando la conexión con Cloudbeds y Pxsol. Hoy cargás habitaciones, tarifas y disponibilidad en el panel, y te ayudamos a configurarlo.</p></div>
+  <div class="card"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Seguro y transparente</h3><p>Avisamos que la llamada se graba (Ley 25.326) y nunca pedimos datos de tarjeta por teléfono.</p></div>
+ </div>
+</div></section>
+
+<section id="planes"><div class="wrap">
+ <div class="sec-head" style="text-align:center;margin-left:auto;margin-right:auto"><p class="eyebrow">Planes</p><h2>Simples y transparentes</h2><p>Elegí el que mejor se adapte a tu hotel. Empezás gratis.</p></div>
+ <div class="grid g4">
+  <div class="card price"><h3>Piloto</h3><div class="amt">Gratis</div><p class="mins">30 días · hasta 150 min</p><ul><li>Atención 24/7</li><li>Reservas automáticas</li><li>Panel de administración</li><li>Aviso de reservas por email</li><li>Soporte por email</li></ul><a class="btn btn-ghost" href="#demo">Empezar gratis</a></div>
+  <div class="card price"><h3>Esencial</h3><div class="amt">USD 79<small>/mes</small></div><p class="mins">250 minutos incluidos</p><ul><li>Todo de Piloto</li><li>Elegimos con vos la voz del asistente</li><li>Historial de llamadas con resumen y transcripción</li><li>Soporte prioritario</li></ul><a class="btn btn-ghost" href="#demo">Elegir plan</a></div>
+  <div class="card price pop"><span class="tagp">Recomendado</span><h3>Profesional</h3><div class="amt">USD 199<small>/mes</small></div><p class="mins">700 minutos incluidos</p><ul><li>Todo de Esencial</li><li class="dim">Integración Cloudbeds y Pxsol (próximamente)</li><li class="dim">Múltiples usuarios (próximamente)</li></ul><a class="btn btn-or" href="#demo">Elegir plan</a></div>
+  <div class="card price"><h3>Plus</h3><div class="amt">USD 399<small>/mes</small></div><p class="mins">1.600 minutos incluidos</p><ul><li>Todo de Profesional</li><li>Múltiples propiedades (a medida, consultanos)</li><li>Integraciones a medida (consultanos)</li><li>Account manager dedicado</li></ul><a class="btn btn-ghost" href="#demo">Contactar ventas</a></div>
+ </div>
+ <p class="note">Precios + IVA. Minutos adicionales disponibles.</p>
+</div></section>
+
+<section id="faq" class="alt"><div class="wrap">
+ <div class="sec-head"><p class="eyebrow">Preguntas frecuentes</p><h2>Todo lo que necesitás saber</h2></div>
+ <div class="faq">
+  <details><summary>¿Cómo saben los huéspedes que hablan con una IA?</summary><p>Al inicio de cada llamada, el asistente avisa que es un sistema automatizado y que la llamada se graba, en línea con la Ley 25.326 de Protección de Datos Personales.</p></details>
+  <details><summary>¿Y si el huésped quiere hablar con una persona?</summary><p>El asistente le toma el mensaje y te queda registrado en el resumen de la llamada, en tu panel. Transferir la llamada en vivo a tu número: próximamente (lo vamos a configurar con vos en el alta).</p></details>
+  <details><summary>¿Es seguro dar datos por teléfono?</summary><p>Nunca pedimos números de tarjeta ni datos bancarios por teléfono. El pago lo coordinás directamente con el huésped, en el check-in o por el medio que ya uses.</p></details>
+  <details><summary>¿Puedo revisar las llamadas?</summary><p>Sí. Desde tu panel leés la transcripción y el resumen de cada conversación. Escuchar el audio desde el panel: próximamente.</p></details>
+  <details><summary>¿Funciona con mi sistema de gestión (PMS)?</summary><p>Todavía no: la integración con Cloudbeds y Pxsol está en desarrollo. Hoy cargás habitaciones, tarifas y disponibilidad en el panel de RecepcionAI y te ayudamos a configurarlo. Si usás otro sistema, escribinos.</p></details>
+  <details><summary>¿Puedo probarlo antes de contratar?</summary><p>Por supuesto. Tenés 30 días gratis con hasta 150 minutos de llamadas, sin tarjeta de crédito.</p></details>
+ </div>
+</div></section>
+
+<section id="demo"><div class="wrap">
+ <div class="formbox">
+  <div class="sec-head"><p class="eyebrow">Demo gratis</p><h2>Pedí tu demo</h2><p>Completá el formulario y te contactamos en menos de 24 horas.</p></div>
+  <form action="https://formsubmit.co/recepcionai.hoteles@gmail.com" method="POST">
+   <label for="name">Tu nombre *</label><input type="text" id="name" name="name" required placeholder="Juan Pérez" autocomplete="name">
+   <label for="email">Email *</label><input type="email" id="email" name="email" required placeholder="juan@tuhotel.com" autocomplete="email">
+   <label for="phone">WhatsApp *</label><input type="tel" id="phone" name="phone" required placeholder="+54 11 1234-5678" autocomplete="tel">
+   <label for="hotel">Nombre del hotel o cabaña *</label><input type="text" id="hotel" name="hotel" required placeholder="Hotel Los Arrayanes">
+   <label for="rooms">Cantidad de habitaciones</label>
+   <select id="rooms" name="rooms"><option value="">Seleccioná...</option><option>1-10 habitaciones</option><option>11-25 habitaciones</option><option>26-50 habitaciones</option><option>Más de 50</option></select>
+   <label for="message">¿Algo más que quieras contarnos?</label><textarea id="message" name="message" placeholder="Contanos sobre tu hotel y lo que necesitás..."></textarea>
+   <input type="hidden" name="_subject" value="Nueva solicitud de demo - RecepcionAI">
+   <input type="hidden" name="_captcha" value="false">
+   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+   <input type="hidden" name="_next" value="https://recepcionai.github.io/gracias.html">
+   <button class="btn btn-or" type="submit">Solicitar demo gratis</button>
+  </form>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <div><img src="assets/logo-horizontal-negativo.svg" alt="RecepcionAI" height="28"><p style="margin-top:10px">Tu recepcionista, 24/7</p></div>
+ <div class="links"><a href="https://instagram.com/recepcionai">@recepcionai</a><a href="mailto:recepcionai.hoteles@gmail.com">recepcionai.hoteles@gmail.com</a></div>
+ <p>© 2026 RecepcionAI. Todos los derechos reservados.</p>
+</div></footer>
+</body></html>
